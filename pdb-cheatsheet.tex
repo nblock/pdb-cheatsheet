@@ -1,0 +1,85 @@
+%about: A cheatsheet for Python Debugger 
+%author: Florian Preinstorfer <nblock@archlinux.org>
+%url: https://github.com/nblock/pdf-cheatsheet
+%license: creative commons by-nc-sa
+%credits:
+%  - LaTeX template based on https://github.com/mtdavidson/emacs-cheatsheet
+%  - https://anilattech.wordpress.com/2011/06/29/python-debugger-pdb-cheatsheet
+%  - https://pythonconquerstheuniverse.wordpress.com/2009/09/10/debugging-in-python
+\documentclass[11pt,landscape,a4paper]{scrartcl}
+
+\usepackage[utf8]{inputenc}
+\usepackage[naustrian]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{eqlist}
+\usepackage[pdftex]{hyperref}
+\usepackage{nopageno}
+\usepackage[cm]{fullpage}
+\usepackage{multicol}
+
+\parindent=0cm
+\parskip=2mm
+\def\eqlistlabel#1{\bfseries#1}
+\newcommand{\keystroke}[1]{$<$#1$>$}
+\setcounter{secnumdepth}{-1} 
+\hypersetup{
+  pdftitle={Python Debugger Cheatsheet},
+  pdfauthor={Florian Preinstorfer},
+  pdfkeywords={Python, Debugger, Cheatsheet, pdb, ipdb},
+  pdfstartview={FitH}
+}
+
+\begin{document}
+  \begin{center}
+    \huge \bfseries Python Debugger Cheatsheet\\
+    \vspace{1cm}
+  \end{center}
+
+  \begin{multicols}{2}
+    \section{Getting started}
+      start pdb from within a script:\\
+      {\bfseries import pdb;pdb.set\_trace()}
+      
+      start pdb from the commandline:\\
+      {\bfseries python -m pdb \keystroke{file.py}}
+      
+    \section{Basic movement}
+      \begin{eqlist}
+        \item[n(ext)] execute the current statement
+        \item[s(tep)] step into function
+        \item[h(elp)] print available commands
+        \item[h(elp) \textit{command}] print help about \textit{command}
+        \item[\keystroke{ENTER}] repeat the last command
+        \item[q(quit)] quit pdb
+
+        \item[r(eturn)] continue execution until the current function returns
+        \item[c(ontinue)] continue execution until a breakpoint is encountered
+
+        \item[p(rint) \textit{expr}] print the value of \textit{expr}
+        \item[pp \textit{expr}] pretty-print the value of \textit{expr}
+        \item[a(rgs)] print the args of the current function
+        \item[w(here)] print current position (including stack trace)
+        
+        \item[!\textit{stmt}] treat \textit{stmt} as a Python statement instead of a pdf command
+
+        \item[l(ist)] list 11 lines of code around the current line
+        \item[l(ist) \textit{first}, \textit{last}] list from \textit{first} to \textit{last} line number
+        
+        \item[u(p)] move one level up in the stack trace
+        \item[d(own)] move one level down in the stack trace
+      \end{eqlist}
+
+    \section{Breakpoints}
+      \begin{eqlist}
+        \item[b(reak)] show all breakpoints
+        \item[b(reak) \textit{lineno}] set a breakpoint at \textit{lineno}
+        \item[b(reak) \textit{func}] set a breakpoint at the first line of a \textit{func}
+      \end{eqlist}
+  \end{multicols}
+    \let\thefootnote\relax\footnotetext{
+      \today Inspiration from Emacs Cheat Sheet (
+      https://ccrma.stanford.edu/guides/package/emacs/emacs.html ),  Reference Card (http://refcards.com/docs/wingb/xemacs/xemacs-refcard-a4.pdf)
+    }
+
+\end{document}
