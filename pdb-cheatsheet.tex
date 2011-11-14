@@ -24,7 +24,7 @@
 \newcommand{\theversion}{1.0}
 \newcommand{\keystroke}[1]{$<$#1$>$}
 \parindent=0cm
-\parskip=2mm
+\parskip=1mm
 \def\eqlistlabel#1{\bfseries#1}
 \setcounter{secnumdepth}{-1} 
 \hypersetup{
@@ -55,31 +55,38 @@
       
       start pdb from the commandline:\\
       {\bfseries python -m pdb \keystroke{file.py}}
-      
-    \section{Basic movement}
+    
+    \section{Basics}
       \begin{eqlist}
-        \item[n(ext)] execute the current statement
-        \item[s(tep)] step into function
         \item[h(elp)] print available commands
         \item[h(elp) \textit{command}] print help about \textit{command}
-        \item[\keystroke{ENTER}] repeat the last command
-        \item[q(quit)] quit pdb
+        \item[q(quit)] quit debugger
+      \end{eqlist}
 
-        \item[r(eturn)] continue execution until the current function returns
-        \item[c(ontinue)] continue execution until a breakpoint is encountered
-
+    \section{Show}
+      \begin{eqlist}
         \item[p(rint) \textit{expr}] print the value of \textit{expr}
         \item[pp \textit{expr}] pretty-print the value of \textit{expr}
-        \item[a(rgs)] print the args of the current function
         \item[w(here)] print current position (including stack trace)
-        
-        \item[!\textit{stmt}] treat \textit{stmt} as a Python statement instead of a pdb command
-
         \item[l(ist)] list 11 lines of code around the current line
         \item[l(ist) \textit{first}, \textit{last}] list from \textit{first} to \textit{last} line number
-        
+        \item[a(rgs)] print the args of the current function
+      \end{eqlist}
+      
+    \section{Movement}
+      \begin{eqlist}
+        \item[\keystroke{ENTER}] repeat the last command
+        \item[n(ext)] execute the current statement
+        \item[s(tep)] step into function
+        \item[r(eturn)] continue execution until the current function returns
+        \item[c(ontinue)] continue execution until a breakpoint is encountered
         \item[u(p)] move one level up in the stack trace
         \item[d(own)] move one level down in the stack trace
+      \end{eqlist}
+        
+    \section{Manipulation}
+      \begin{eqlist}
+        \item[!\textit{stmt}] treat \textit{stmt} as a Python statement instead of a pdb command
       \end{eqlist}
 
     \section{Breakpoints}
