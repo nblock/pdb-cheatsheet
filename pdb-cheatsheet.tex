@@ -1,31 +1,35 @@
 %about: A cheatsheet for Python Debugger 
 %author: Florian Preinstorfer <nblock@archlinux.org>
-%url: https://github.com/nblock/pdf-cheatsheet
+%url: https://github.com/nblock/pdb-cheatsheet
 %license: creative commons by-nc-sa
 %credits:
 %  - LaTeX template based on https://github.com/mtdavidson/emacs-cheatsheet
 %  - https://anilattech.wordpress.com/2011/06/29/python-debugger-pdb-cheatsheet
 %  - https://pythonconquerstheuniverse.wordpress.com/2009/09/10/debugging-in-python
-\documentclass[11pt,landscape,a4paper]{scrartcl}
+\documentclass[11pt,landscape,a4paper]{article}
 
 \usepackage[utf8]{inputenc}
-\usepackage[naustrian]{babel}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \usepackage{eqlist}
-\usepackage[pdftex]{hyperref}
+\usepackage[pdftex,hidelinks]{hyperref}
 \usepackage{nopageno}
 \usepackage[cm]{fullpage}
 \usepackage{multicol}
+\usepackage[hang,flushmargin]{footmisc}
+\usepackage{datetime}
 
+%custom commands and config
+\newcommand{\theauthor}{Florian Preinstorfer (\href{mailto:nblock@archlinux.us}{nblock@archlinux.us})}
+\newcommand{\theversion}{0.1}
+\newcommand{\keystroke}[1]{$<$#1$>$}
 \parindent=0cm
 \parskip=2mm
 \def\eqlistlabel#1{\bfseries#1}
-\newcommand{\keystroke}[1]{$<$#1$>$}
 \setcounter{secnumdepth}{-1} 
 \hypersetup{
   pdftitle={Python Debugger Cheatsheet},
-  pdfauthor={Florian Preinstorfer},
+  pdfauthor={\theauthor},
   pdfkeywords={Python, Debugger, Cheatsheet, pdb, ipdb},
   pdfstartview={FitH}
 }
@@ -77,9 +81,9 @@
         \item[b(reak) \textit{func}] set a breakpoint at the first line of a \textit{func}
       \end{eqlist}
   \end{multicols}
-    \let\thefootnote\relax\footnotetext{
-      \today Inspiration from Emacs Cheat Sheet (
-      https://ccrma.stanford.edu/guides/package/emacs/emacs.html ),  Reference Card (http://refcards.com/docs/wingb/xemacs/xemacs-refcard-a4.pdf)
-    }
-
+  \let\thefootnote\relax\footnotetext{
+    by \theauthor, version \theversion, 
+    license \href{https://creativecommons.org/licenses/by-nc-sa/3.0}{cc-by-nc-sa 3.0}\\
+    see \url{https://github.com/nblock/pdb-cheatsheet} for more information.
+  }
 \end{document}
