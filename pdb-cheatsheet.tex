@@ -17,11 +17,11 @@
 \usepackage[cm]{fullpage}
 \usepackage{multicol}
 \usepackage[hang,flushmargin]{footmisc}
-\usepackage{datetime}
+\usepackage{graphicx}
 
 %custom commands and config
 \newcommand{\theauthor}{Florian Preinstorfer (\href{mailto:nblock@archlinux.us}{nblock@archlinux.us})}
-\newcommand{\theversion}{0.1}
+\newcommand{\theversion}{1.0}
 \newcommand{\keystroke}[1]{$<$#1$>$}
 \parindent=0cm
 \parskip=2mm
@@ -36,7 +36,15 @@
 
 \begin{document}
   \begin{center}
-    \huge \bfseries Python Debugger Cheatsheet\\
+    \begin{minipage}[c]{0.15\textwidth}
+      \includegraphics[width=3cm]{python-logo}
+    \end{minipage}
+    \begin{minipage}[c]{0.43\textwidth}
+      \huge \bfseries Python Debugger Cheatsheet
+    \end{minipage}
+    \begin{minipage}[r]{0.15\textwidth}
+      \includegraphics[width=3cm]{python-logo}
+    \end{minipage}
     \vspace{1cm}
   \end{center}
 
@@ -65,7 +73,7 @@
         \item[a(rgs)] print the args of the current function
         \item[w(here)] print current position (including stack trace)
         
-        \item[!\textit{stmt}] treat \textit{stmt} as a Python statement instead of a pdf command
+        \item[!\textit{stmt}] treat \textit{stmt} as a Python statement instead of a pdb command
 
         \item[l(ist)] list 11 lines of code around the current line
         \item[l(ist) \textit{first}, \textit{last}] list from \textit{first} to \textit{last} line number
