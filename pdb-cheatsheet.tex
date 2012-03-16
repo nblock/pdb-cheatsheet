@@ -7,13 +7,13 @@
 %  - http://docs.python.org/library/pdb.html
 %  - https://anilattech.wordpress.com/2011/06/29/python-debugger-pdb-cheatsheet
 %  - https://pythonconquerstheuniverse.wordpress.com/2009/09/10/debugging-in-python
-\documentclass[11pt,landscape,a4paper]{article}
+\documentclass[10pt,landscape,a4paper]{article}
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \usepackage{eqlist}
-\usepackage[pdftex,hidelinks]{hyperref}
+\usepackage[pdftex,colorlinks=false,pdfborder={0,0,0}]{hyperref}
 \usepackage{nopageno}
 \usepackage[cm]{fullpage}
 \usepackage{multicol}
@@ -50,21 +50,20 @@
   \end{center}
 
   \begin{multicols}{2}
-    \section{Getting started}
-      start pdb from within a script:\\
-      {\bfseries import pdb;pdb.set\_trace()}
+    \subsection{Getting started}
+      \begin{eqlist}
+        \item[{\bfseries import pdb;pdb.set\_trace()}] start pdb from within a script
+        \item[{\bfseries python -m pdb \keystroke{file.py}}] start pdb from the commandline
+      \end{eqlist}
 
-      start pdb from the commandline:\\
-      {\bfseries python -m pdb \keystroke{file.py}}
-
-    \section{Basics}
+    \subsection{Basics}
       \begin{eqlist}
         \item[h(elp)] print available commands
         \item[h(elp) \textit{command}] print help about \textit{command}
         \item[q(quit)] quit debugger
       \end{eqlist}
 
-    \section{Examine}
+    \subsection{Examine}
       \begin{eqlist}
         \item[p(rint) \textit{expr}] print the value of \textit{expr}
         \item[pp \textit{expr}] pretty-print the value of \textit{expr}
@@ -74,7 +73,16 @@
         \item[a(rgs)] print the args of the current function
       \end{eqlist}
 
-    \section{Movement}
+    \subsection{Miscellaneous}
+      \begin{eqlist}
+        \item[!\textit{stmt}] treat \textit{stmt} as a Python statement instead of a pdb command
+        \item[alias \textit{map} \textit{stmt}] map Python statement as a map command
+        \item[alias \textit{map} <\textit{arg1} \ldots> \textit{stmt}] pass arguments to Python statement. \\
+            \textit{stmt} includes \%1, \%2, \ldots literals.
+      \end{eqlist}
+      Save pdb commands to local \keystroke{./.pdbrc} file for repetitive access.
+
+    \subsection{Movement}
       \begin{eqlist}
         \item[\keystroke{ENTER}] repeat the last command
         \item[n(ext)] execute the current statement (step over)
@@ -85,20 +93,23 @@
         \item[d(own)] move one level down in the stack trace
       \end{eqlist}
 
-    \section{Breakpoints}
+    \subsection{Breakpoints}
       \begin{eqlist}
-        \item[b(reak)] show all breakpoints
+        \item[b(reak)] show all breakpoints with its \textit{number}
         \item[b(reak) \textit{lineno}] set a breakpoint at \textit{lineno}
+        \item[b(reak) \textit{lineno}, \textit{cond}] stop at breakpoint \textit{lineno} if Python condition \textit{cond} holds, e.g.\ i==42
+        \item[b(reak) \textit{file}:\textit{lineno}] set a breakpoint in \textit{file} at \textit{lineno}
         \item[b(reak) \textit{func}] set a breakpoint at the first line of a \textit{func}
+        \item[tbreak \textit{lineno}] set a temporary breakpoint at \textit{lineno}, i.e.\ is removed when first hit
+        \item[disable \textit{number}] disable breakpoint \textit{number}
+        \item[enable \textit{number}] enable breakpoint \textit{number}
+        \item[clear \textit{number}] delete breakpoint \textit{number}
       \end{eqlist}
 
-    \section{Manipulation}
-      \begin{eqlist}
-        \item[!\textit{stmt}] treat \textit{stmt} as a Python statement instead of a pdb command
-      \end{eqlist}
+    \small{
+    \hrule
+    Author: \theauthor~--- version \theversion~--- license \href{https://creativecommons.org/licenses/by-nc-sa/3.0}{cc-by-nc-sa 3.0}\\
+    See \url{https://github.com/nblock/pdb-cheatsheet} for more information.
+    }
   \end{multicols}
-  \let\thefootnote\relax\footnotetext{
-    by \theauthor~--- version \theversion~--- license \href{https://creativecommons.org/licenses/by-nc-sa/3.0}{cc-by-nc-sa 3.0}\\
-    see \url{https://github.com/nblock/pdb-cheatsheet} for more information.
-  }
 \end{document}
