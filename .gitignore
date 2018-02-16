@@ -1,8 +1,12 @@
-#LaTeX
+# LaTeX
+*-blx.bib
 *.aux
+*.bak
 *.bbl
 *.blg
 *.dvi
+*.fdb_latexmk
+*.fls
 *.glg
 *.glo
 *.gls
@@ -13,15 +17,15 @@
 *.lof
 *.log
 *.lot
+*.nav
 *.nlo
 *.out
-*.toc
-*.fdb_latexmk
 *.pdfsync
-*.synctex.gz
-*.nav
-*.snm
-*.vrb
-*.bak
-*-blx.bib
 *.run.xml
+*.snm
+*.synctex.gz
+*.toc
+*.vrb
+
+# tags
+tags
